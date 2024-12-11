@@ -1,0 +1,51 @@
+#index table{
+	border:1px solid grey;
+	background-color:mediumorchid;
+	color:white;
+	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, "sans-serif";
+}
+	
+#index h3{
+	margin:auto;
+	padding:auto;
+}
+
+#index td{
+	padding:5px;
+	text-align:center;
+}
+
+#juego td, #juego th{
+	padding:10px;
+	text-align:left;
+}
+
+#juego img{
+	height:70px;
+	width:105px;
+	padding:5px;
+	border: 3px solid black;
+}
+
+#juego #alertas{
+	height:20px;
+	margin:0px;
+	padding:0px;
+	font-weight:bold;
+}
+
+#juego #alerta{
+	color:red;
+}
+
+#juego #felicitacion{
+	color:blue;
+}
+
+#juego #creditos{
+	padding:2px;
+	font-size:22px;
+	background-color:lightgrey;
+	border:solid 1px black;
+}
+

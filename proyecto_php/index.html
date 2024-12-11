@@ -2,29 +2,14 @@
 <html>
 <head>
 <title>Proyecto PHP Ibai Helguera</title>
-	<style type="text/css">
-		table{
-			border:1px solid grey;
-			background-color:mediumorchid;
-			color:white;
-			font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, "sans-serif";
-		
-		}
-		h3{
-			margin:auto;
-			padding:auto;
-		}
-		td{
-			padding:5px;
-			text-align:center;
-		}
-	</style>
+<link rel="stylesheet" href="css.css">
+
 </head>
 
-<body>
+<body id="index">
 	
 	<form action="control.php" method="post">
-		<table>
+		<table id="tabla_index">
 			<tr>
 				<td colspan="2">
 					<h3>Vamos a jugar!!!</h3>
@@ -37,7 +22,7 @@
 					<input type="text" name="nombre_usuario" placeholder="Tu nombre aqu&iacute;...">
 				</td>
 			</tr>	
-			<tr >
+			<tr>
 				<td colspan="2">
 					<input type="submit" name="enviar" value="Jugar">
 				</td>

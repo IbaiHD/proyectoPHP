@@ -1,7 +1,6 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="utf-8">
 <title>Redireccionando...</title>
 </head>
 
@@ -14,9 +13,11 @@
 			}else{
 				session_start();
 				$_SESSION["usuario"]=trim(strip_tags($_POST["nombre_usuario"]));
-				$_SESSION["monstruo1"]="imagenes/monstruo" .rand(1,8). ".jpg";
-				$_SESSION["monstruo2"]="imagenes/monstruo" .rand(1,8). ".jpg";
-				$_SESSION["monstruo3"]="imagenes/monstruo" .rand(1,8). ".jpg";
+				$_SESSION["monstruo1"]=rand(1,8);
+				$_SESSION["monstruo2"]=rand(1,8);
+				$_SESSION["monstruo3"]=rand(1,8);
+				$_SESSION["creditos"]=0;
+				
 				header("location:juego.php");
 			}
 		}else{

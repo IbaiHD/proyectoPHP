@@ -1,29 +1,74 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>Juego</title>
+<title>Juego - Ibai Helguera</title>
+<link rel="stylesheet" href="css.css">
 </head>
 
-<body>
+<body id="juego">
 	<?php
+		require "funciones.php";
 		session_start();
-		$creditos=0;
-		$nombre="hola";
 		$fecha=date("d-m-Y");
+		$premiado=false;
+		
+		if (!tiene_sesion()){ 
+			header("location:index.html");
+		}
+		
+		if(isset($_POST["credito"])){
+			incrementar_credito();
+		}
+
+		if(isset($_POST["jugar"])){
+			jugar($premiado);
+		
+		}
+		
 	?>
-	<h4>COMBINACIÓN MÁGICA</h4>
-	<img src="<?php echo $_SESSION["monstruo1"]?>" id="monstruo_1" class="monstruo" alt="imagen_1">
-	<img src="<?php echo $_SESSION["monstruo2"]?>" id="monstruo_2" class="monstruo" alt="imagen_2">
-	<img src="<?php echo $_SESSION["monstruo3"]?>" id="monstruo_3" class="monstruo" alt="imagen_3">
-	<br>
-	<input type=button name="credito" value="Incrementar Crédito">
-	<div id="cantidad_cretidos"><?php echo $creditos?></div>
-	<br><br>
-	<input type=button name="jugar" value="Probar Suerte">
-	<br><br>
+	
+	<form action="" method="post">
+		<table>
+		
+			<tr>
+				<td id="alertas">	
+					<?php if($_SESSION["creditos"] <= 0){ ?>
+					<span id=alerta>Introduce más monedas</span>
+					<?php	} ?>
+					
+					<?php if($premiado){ ?>
+					<span id=felicitacion>PREMIO</span>
+					<?php	} ?>
+				</td>
+
+			</tr>
+			
+			<tr>
+				<th>COMBINACIÓN MÁGICA</th>
+			</tr>
+			
+			<tr>
+				<td>
+					<img src="imagenes/monstruo<?php echo $_SESSION["monstruo1"]?>.jpg" id="monstruo_1" class="monstruo" alt="imagen_1">
+					<img src="imagenes/monstruo<?php echo $_SESSION["monstruo2"]?>.jpg" id="monstruo_2" class="monstruo" alt="imagen_2">
+					<img src="imagenes/monstruo<?php echo $_SESSION["monstruo3"]?>.jpg" id="monstruo_3" class="monstruo" alt="imagen_3">
+				</td>
+			</tr>
+			
+			<tr>
+				<td><input type=submit name="credito" value="Incrementar Crédito">
+					<span id="creditos"><?php echo $_SESSION["creditos"];?>
+				</td>
+			</tr>
+			
+			<tr>
+				<td><input type=submit name="jugar" value="Probar Suerte"></td>
+			</tr>
+		
+		</table>
+	</form>
 	<hr>
 	<div id="info_usuario"><?php echo $_SESSION["usuario"]." ".$fecha ?></div>
-
+	
 </body>
 </html>
